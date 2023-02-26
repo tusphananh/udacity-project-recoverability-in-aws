@@ -1,0 +1,24 @@
+Minimum RTO - Single AZ
+00:00 - Problem happens (0 minutes)
+00:05 - An amount of time passes before an alert triggers (5 minutes)
+00:05 - Switch other AZ
+
+Total time: 10 minutes
+
+Minimum RTO - Single Region
+00:00 - Problem happens (0 minutes)
+00:05 - An amount of time passes before an alert triggers (5 minutes)
+00:06 - Alert triggers on-all staff (1 minute)
+00:26 - On-call staff may need to get out of bed, get to computer, log in, log onto VPN (20 minutes)
+00:41 - On-call staff starts diagnosing issue (15 minutes)
+00:56 - Root cause is discovered (15 minutes)
+01:01 - Remediation started (5 minutes) : Promote secondary instance to be the new master and then route the traffic to the new endpoint
+01:16 - Remediation completed (15 minutes) 
+
+Total time: 1 hour 16 minutes
+
+Minimum RPO - Single AZ
+RDS is able to have recovery point objective (RPO) to 5 minutes or under, the most data lost would be in 5 minutes.
+
+Minimum RPO - Single AZ
+Replica RDS would have the same RPO as primary. However, we should add buffer time for critical cases, it would be in 10 minutes total.

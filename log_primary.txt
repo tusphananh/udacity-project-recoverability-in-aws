@@ -1,0 +1,49 @@
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MySQL connection id is 28
+Server version: 8.0.28 Source distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MySQL [(none)]> USE udacity
+Database changed
+MySQL [udacity]> CREATE TABLE employees (
+    ->    id INT NOT NULL AUTO_INCREMENT,
+    ->    first_name VARCHAR(50) NOT NULL,
+    ->    last_name VARCHAR(50) NOT NULL,
+    ->    email VARCHAR(100) NOT NULL,
+    ->    phone_number VARCHAR(20),
+    ->    hire_date DATE NOT NULL,
+    ->    PRIMARY KEY (id)
+    -> );
+Query OK, 0 rows affected (0.07 sec)
+
+MySQL [udacity]> INSERT INTO employees (first_name, last_name, email, phone_number)
+    -> VALUES ('John', 'Doe', 'john.doe@example.com', '123-456-7890');
+Query OK, 1 row affected, 1 warning (0.02 sec)
+
+MySQL [udacity]> SELECT column1, column2, column3, ...
+    -> FROM table_name
+    -> WHERE condition;
+MySQL [udacity]> SELECT first_name, last_name, email, phone_number
+    -> FROM employees
+    -> WHERE id = 1;
++------------+-----------+----------------------+--------------+
+| first_name | last_name | email                | phone_number |
++------------+-----------+----------------------+--------------+
+| John       | Doe       | john.doe@example.com | 123-456-7890 |
++------------+-----------+----------------------+--------------+
+1 row in set (0.00 sec)
+
+MySQL [udacity]> UPDATE employees
+    -> SET phone_number = '098-765-4321'
+    -> WHERE id = 1;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MySQL [udacity]> DELETE FROM employees
+    -> WHERE id = 1;
+Query OK, 1 row affected (0.01 sec)
+
+MySQL [udacity]>
